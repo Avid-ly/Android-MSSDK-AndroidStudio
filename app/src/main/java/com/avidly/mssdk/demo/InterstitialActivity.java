@@ -16,27 +16,14 @@ public class InterstitialActivity extends BaseActivity {
     MsInterstitialAd mInterstitialAd;
     Button mButtonShow;
     String placeidAA = "sample_inter";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interstitial);
         mButtonShow = (Button) findViewById(R.id.buttonShowEEE);
         mInterstitialAd = new MsInterstitialAd(InterstitialActivity.this, placeidAA);
-        mInterstitialAd.setLoadCallBack(new MsInterstitialLoadCallback() {
-            @Override
-            public void onLoadFailed(String placement) {
-                Log.i(TAG, "InterstitialAd " + placement + " onLoadFailed:");
-                Toast.makeText(InterstitialActivity.this, placement + " loadAd fail", Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onLoadSuccessed(String placement) {
-                Log.i(TAG, "InterstitialAd " + placement + " onLoadSuccessed:");
-                Toast.makeText(InterstitialActivity.this, placement + " loadAd success", Toast.LENGTH_SHORT).show();
-            }
-        });
-
+        mInterstitialAd.setLoadCallBack(new MyLoadCallBack());
 
         mInterstitialAd.setInterstitialAdListener(new MsInterstitialAdListener() {
             @Override
@@ -46,6 +33,8 @@ public class InterstitialActivity extends BaseActivity {
 
             @Override
             public void onClosed() {
+                mInterstitialAd.setLoadCallBack(new MyLoadCallBack());
+
                 Log.i(TAG, "onClosed: ");
             }
 
@@ -67,5 +56,18 @@ public class InterstitialActivity extends BaseActivity {
         });
     }
 
+    private class MyLoadCallBack implements MsInterstitialLoadCallback {
+        @Override
+        public void onLoadFailed(String placement) {
+            Log.i(TAG, "InterstitialAd " + placement + " onLoadFailed:");
+            Toast.makeText(InterstitialActivity.this, placement + " loadAd fail", Toast.LENGTH_SHORT).show();
 
+        }
+
+        @Override
+        public void onLoadSuccessed(String placement) {
+            Log.i(TAG, "InterstitialAd " + placement + " onLoadSuccessed:");
+            Toast.makeText(InterstitialActivity.this, placement + " loadAd success", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

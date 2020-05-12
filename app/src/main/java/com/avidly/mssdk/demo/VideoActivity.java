@@ -50,6 +50,7 @@ public class VideoActivity extends BaseActivity {
 
             @Override
             public void onVideoAdClosed() {
+                mVideoAd.setLoadCallback(new MyLoadCallBack());
                 Log.i(TAG, "onVideoAdClosed: ");
             }
 
@@ -102,22 +103,7 @@ public class VideoActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 text.setText("loading ... ...");
-                mVideoAd.load(new MsRewardVideoLoadCallback() {
-                    @Override
-                    public void onLoadSuccessed() {
-                        Log.i(TAG, "VideoActivity onLoadSuccessed: ");
-                        text.setText("game");
-                        Toast.makeText(VideoActivity.this, "视频广告加载成功", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onLoadFailed() {
-                        Log.i(TAG, "VideoActivity onLoadFailed: ");
-                        text.setText("game");
-                        mVideoAd.load(this);
-                        Toast.makeText(VideoActivity.this, "视频广告加载失败", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                mVideoAd.setLoadCallback(new MyLoadCallBack());
             }
         });
     }
@@ -140,4 +126,21 @@ public class VideoActivity extends BaseActivity {
         }
     }
 
+    private  class MyLoadCallBack implements MsRewardVideoLoadCallback {
+
+        @Override
+        public void onLoadFailed() {
+            Log.i(TAG, "VideoActivity onLoadFailed: ");
+            text.setText("game");
+            mVideoAd.load(this);
+            Toast.makeText(VideoActivity.this, "视频广告加载失败", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onLoadSuccessed() {
+            Log.i(TAG, "VideoActivity onLoadSuccessed: ");
+            text.setText("game");
+            Toast.makeText(VideoActivity.this, "视频广告加载成功", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
