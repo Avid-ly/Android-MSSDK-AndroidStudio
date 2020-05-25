@@ -93,8 +93,8 @@ dependencies {
     implementation 'com.mopub.mediation:tapjoy:12.4.2.0'
 //
     //Vungle
-    implementation 'com.vungle:publisher-sdk-android:6.5.2'
-    implementation 'com.mopub.mediation:vungle:6.5.2.0'
+    implementation 'com.vungle:publisher-sdk-android:6.5.3'
+    implementation 'com.mopub.mediation:vungle:6.5.3.0'
 //
 // ironSource
     implementation 'com.ironsource.sdk:mediationsdk:6.15.0.1@jar'
