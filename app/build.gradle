@@ -66,11 +66,11 @@ repositories {
 
 dependencies {
     implementation(name: 'analysissdk-foreign_R4.0.0.1', ext: 'aar') { changing = true }
-    implementation 'com.ms.sdk:mssdk:1.0.02.3'
+    implementation 'com.ms.sdk:mssdk:1.0.02.4'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 // mobpub
-    implementation('com.mopub:mopub-sdk:+@aar') {
+    implementation('com.mopub:mopub-sdk-rewardedvideo:+@aar') {
         transitive = true
     }
 
@@ -88,10 +88,6 @@ dependencies {
     implementation 'com.applovin:applovin-sdk:9.11.6'
     implementation 'com.mopub.mediation:applovin:9.11.6.0'
 
-// Tapjoy
-    implementation 'com.tapjoy:tapjoy-android-sdk:12.4.2@aar'
-    implementation 'com.mopub.mediation:tapjoy:12.4.2.0'
-//
     //Vungle
     implementation 'com.vungle:publisher-sdk-android:6.5.3'
     implementation 'com.mopub.mediation:vungle:6.5.3.0'
@@ -115,19 +111,5 @@ dependencies {
 // Chartboost
     implementation 'com.chartboost:chartboost-sdk:8.0.1'
     implementation 'com.mopub.mediation:chartboost:8.0.1.0'
-//
-// Mintegral
-    implementation 'com.mintegral.msdk:mtgbanner:13.0.31'
-    implementation 'com.mintegral.msdk:interstitialvideo:13.0.31'
-    implementation 'com.mintegral.msdk:videojs:13.0.31'
-    implementation 'com.mintegral.msdk:nativeex:13.0.31'
-    implementation 'com.mintegral.msdk:mtgjscommon:13.0.31'
-    implementation 'com.mintegral.msdk:playercommon:13.0.31'
-    implementation 'com.mintegral.msdk:reward:13.0.31'
-    implementation 'com.mintegral.msdk:videocommon:13.0.31'
-    implementation 'com.mintegral.msdk:common:13.0.31'
-    implementation 'com.mintegral.msdk:mtgnative:13.0.31'
-    implementation 'com.mintegral.msdk:mtgbid:13.0.31'
-    implementation 'com.mopub.mediation:mintegral:13.0.31.0'
 
 }
