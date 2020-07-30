@@ -109,7 +109,7 @@ dependencies {
     implementation 'com.mopub.mediation:facebookaudiencenetwork:5.7.1.1'
 
 // Chartboost
-    implementation 'com.chartboost:chartboost-sdk:8.0.1'
-    implementation 'com.mopub.mediation:chartboost:8.0.1.0'
+    implementation 'com.chartboost:chartboost-sdk:8.0.2'
+    implementation 'com.mopub.mediation:chartboost:8.0.2.1'
 
 }
