@@ -25,9 +25,6 @@ public class MainAppActivity extends BaseActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (ContextCompat.checkSelfPermission(MainAppActivity.this, WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MainAppActivity.this, new String[]{WRITE_EXTERNAL_STORAGE}, 001);
-        }
         ALYAnalysis.enalbeDebugMode(false);
         ALYAnalysis.init(getApplicationContext(), "999999", "32408");
         // 上线时请关闭
@@ -63,11 +60,6 @@ public class MainAppActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
 
