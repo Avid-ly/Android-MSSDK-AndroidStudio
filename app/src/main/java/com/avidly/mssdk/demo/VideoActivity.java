@@ -132,7 +132,6 @@ public class VideoActivity extends BaseActivity {
         public void onLoadFailed() {
             Log.i(TAG, "VideoActivity onLoadFailed: ");
             text.setText("game");
-            mVideoAd.load(this);
             Toast.makeText(VideoActivity.this, "视频广告加载失败", Toast.LENGTH_SHORT).show();
         }
 

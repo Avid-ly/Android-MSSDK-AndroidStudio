@@ -36,19 +36,6 @@ public class MainAppActivity extends BaseActivity {
             public void onInitializationFinished() {
                 Log.i(TAG, "onInitializationFinished: ");
                 // 如果所处地区受GDPR条约的约束,且没有设置过授权结果
-                if (MsSDK.shouldShowGDPRConsentDialog()){
-                    MsSDK.showConsentDialog(new MssdkConsentDialogListener() {
-                        @Override
-                        public void consentSuccess(boolean agreeConsent) {
-                            Log.i(TAG, "consentResult: "+agreeConsent);
-                        }
-
-                        @Override
-                        public void consentFail(String message) {
-                            Log.i(TAG, "consentFail: "+message);
-                        }
-                    });
-                }
 
             }
         });
