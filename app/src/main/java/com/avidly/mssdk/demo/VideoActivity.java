@@ -45,23 +45,24 @@ public class VideoActivity extends BaseActivity {
         mVideoAd.setVideoAdListener(new MsRewardVideoAdListener() {
             @Override
             public void onVideoAdClicked() {
-                Log.i(TAG, "onVideoAdClicked: ");
+                Log.d(TAG, "onVideoAdClicked: ");
             }
 
             @Override
             public void onVideoAdClosed() {
+                Log.d(TAG, "onVideoAdClosed: ");
                 mVideoAd.setLoadCallback(new MyLoadCallBack());
-                Log.i(TAG, "onVideoAdClosed: ");
             }
 
             @Override
             public void onVideoAdDisplayed() {
-                Log.i(TAG, "onVideoAdDisplayed: ");
+                Log.d(TAG, "onVideoAdDisplayed: ");
             }
 
             @Override
             public void onVideoAdReward() {
-                Log.i(TAG, "onVideoAdReward: ");
+
+                Log.d(TAG, "onVideoAdReward: ");
 
                 runOnUiThread(new Runnable() {
                     @Override
@@ -75,9 +76,16 @@ public class VideoActivity extends BaseActivity {
 
             @Override
             public void onVideoAdDontReward(String reason) {
-                Log.w(TAG, "onVideoAdDontReward: " + reason);
+
+                Log.d(TAG, "onVideoAdDontReward: ");
+            }
+
+            @Override
+            public void onVideoAdShowFailed(String reason) {
+                Log.d(TAG, "onVideoAdShowFailed: ");
             }
         });
+
 
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override

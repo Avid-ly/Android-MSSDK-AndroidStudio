@@ -28,19 +28,23 @@ public class InterstitialActivity extends BaseActivity {
         mInterstitialAd.setInterstitialAdListener(new MsInterstitialAdListener() {
             @Override
             public void onClicked() {
-                Log.i(TAG, "onClicked: ");
+                Log.d(TAG, "onClicked: ");
             }
 
             @Override
             public void onClosed() {
-                mInterstitialAd.setLoadCallBack(new MyLoadCallBack());
-
-                Log.i(TAG, "onClosed: ");
+                Log.d(TAG, "onClosed: ");
             }
 
             @Override
             public void onDisplayed() {
-                Log.i(TAG, "onDisplayed: ");
+                Log.d(TAG, "onDisplayed: ");
+            }
+
+            @Override
+            public void onShowFailed(String reason) {
+                Log.d(TAG, "onShowFailed: ");
+
             }
         });
 

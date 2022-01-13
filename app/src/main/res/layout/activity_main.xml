@@ -52,12 +52,12 @@
                 android:onClick="goToSimpleBanner"
                 android:text="simpleBanner" />
 
-<!--            <Button-->
-<!--                android:id="@+id/btnGetConfig"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="16dp"-->
-<!--                android:text="get_config" />-->
+            <Button
+                android:id="@+id/btnText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Text" />
 
 <!--            <Button-->
 <!--                android:id="@+id/btnLogMemory"-->
