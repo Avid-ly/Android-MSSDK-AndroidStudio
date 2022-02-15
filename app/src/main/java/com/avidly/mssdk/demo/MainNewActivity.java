@@ -64,7 +64,7 @@ public class MainNewActivity extends AppCompatActivity implements View.OnClickLi
         MsSDK.onCreate(this);
         // 同意GDPR
 //        MsSDK.grantConsent(this);
-
+        
         MsSDK.init(this, new MsSdkInitializationListener() {
             @Override
             public void onInitializationSuccess() {
