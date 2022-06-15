@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.roy.mopub.sample"
+        applicationId "com.gusdk.demo.app"
         minSdkVersion 19
         targetSdkVersion 31
         versionCode 1
@@ -70,7 +70,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'com.aly.sdk:tasdk:4.1.0.7'
 
-    implementation 'com.ms.sdk:mssdk:2.0.0.3'
+    implementation 'com.ms.sdk:mssdk:3.0.0.1'
     implementation 'com.google.android.gms:play-services-ads:20.5.0'
     implementation 'com.google.ads.mediation:adcolony:4.6.5.0'
     implementation 'com.google.ads.mediation:applovin:10.3.5.0'

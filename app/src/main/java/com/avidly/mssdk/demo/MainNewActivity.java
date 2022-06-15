@@ -28,7 +28,7 @@ public class MainNewActivity extends AppCompatActivity implements View.OnClickLi
     private static String TAG = "MsSDK-demo";
     MsInterstitialAd mInterstitialAd;
     MsRewardVideoAd mVideoAd;
-    private Button btnInter,btnRew,btnPro,btnText;
+    private Button btnInter,btnRew,btnText;
     private TextView textView;
     private String pid = "your pid",gameId = "your game id";
 
@@ -41,8 +41,6 @@ public class MainNewActivity extends AppCompatActivity implements View.OnClickLi
         btnInter.setOnClickListener(this);
         btnRew = findViewById(R.id.btn_rewardedAd);
         btnRew.setOnClickListener(this);
-//        btnPro = findViewById(R.id.btn_properties);
-//        btnPro.setOnClickListener(this);
         btnText = findViewById(R.id.btn_test);
         btnText.setOnClickListener(this);
         textView = findViewById(R.id.txt_con);
