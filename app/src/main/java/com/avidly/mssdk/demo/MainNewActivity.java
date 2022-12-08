@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.aly.sdk.ALYAnalysis;
-import com.google.android.ads.mediationtestsuite.MediationTestSuite;
 import com.ms.sdk.MsInterstitialAd;
 import com.ms.sdk.MsRewardVideoAd;
 import com.ms.sdk.MsSDK;
@@ -23,14 +22,14 @@ import com.ms.sdk.wrapper.interstitial.MsInterstitialLoadCallback;
 import com.ms.sdk.wrapper.video.MsRewardVideoAdListener;
 import com.ms.sdk.wrapper.video.MsRewardVideoLoadCallback;
 
-public class MainNewActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainNewActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static String TAG = "MsSDK-demo";
     MsInterstitialAd mInterstitialAd;
     MsRewardVideoAd mVideoAd;
-    private Button btnInter,btnRew,btnText;
+    private Button btnInter, btnRew, btnText;
     private TextView textView;
-    private String pid = "your pid",gameId = "your game id";
+    private String pid = "999999", gameId = "32408";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +50,7 @@ public class MainNewActivity extends AppCompatActivity implements View.OnClickLi
             public void onSuccess(String userid) {
                 Log.i(TAG, "init success userId is   " + userid);
             }
+
             @Override
             public void onFail(String errorMsg) {
                 Log.i(TAG, "init error  " + errorMsg);
@@ -62,7 +62,7 @@ public class MainNewActivity extends AppCompatActivity implements View.OnClickLi
         MsSDK.onCreate(this);
         // 同意GDPR
 //        MsSDK.grantConsent(this);
-        
+
         MsSDK.init(this, new MsSdkInitializationListener() {
             @Override
             public void onInitializationSuccess() {
@@ -87,23 +87,18 @@ public class MainNewActivity extends AppCompatActivity implements View.OnClickLi
                     public void run() {
                         MsGameEasyBannerWrapper.getInstance().showBottomBannerAtADPlaceId("banner_aaa");
                     }
-                },200);
+                }, 200);
 
-                mInterstitialAd = new MsInterstitialAd(MainNewActivity.this,"ca-app-pub-2152232918216707/4730706409");
+                mInterstitialAd = new MsInterstitialAd(MainNewActivity.this, "ca-app-pub-2152232918216707/4730706409");
                 final MsInterstitialLoadCallback callback = new MsInterstitialLoadCallback() {
                     @Override
                     public void onLoadFailed(String s) {
-
-                        if (s.equals("ca-app-pub-2152232918216707/4730706409")) {
-                            Log.d(TAG, "onLoadFailed:MsInterstitialLoadCallback "+s);
-                        }
+                        Log.d(TAG, "onLoadFailed:MsInterstitialLoadCallback " + s);
                     }
 
                     @Override
                     public void onLoadSuccessed(String s) {
-                        if (s.equals("ca-app-pub-2152232918216707/4730706409")) {
-                            Log.d(TAG, "onLoadSuccessed: MsInterstitialLoadCallback"+s);
-                        }
+                        Log.d(TAG, "onLoadSuccessed: MsInterstitialLoadCallback" + s);
 
                     }
                 };
@@ -115,7 +110,7 @@ public class MainNewActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onInitializationFail(String reason) {
                 Log.d(TAG, "onInitializationFail: 初始化失败" + reason);
-                textView.setText("mssdk init Fail: "+reason);
+                textView.setText("mssdk init Fail: " + reason);
             }
         });
 
@@ -123,7 +118,7 @@ public class MainNewActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_interAd:
 
                 //回调
@@ -146,17 +141,16 @@ public class MainNewActivity extends AppCompatActivity implements View.OnClickLi
 
                     @Override
                     public void onShowFailed(String s) {
-                        Log.d(TAG, "\nonShowFailed: "+ s);
-                        textView.setText("onShowFailed"+s);
+                        Log.d(TAG, "\nonShowFailed: " + s);
+                        textView.setText("onShowFailed" + s);
                     }
                 });
 
 
-
                 //展示
-                if(mInterstitialAd!=null && mInterstitialAd.isReady()){
+                if (mInterstitialAd != null && mInterstitialAd.isReady()) {
                     mInterstitialAd.show();
-                }else {
+                } else {
                     Log.d(TAG, "onClick: interstitial ad not ready");
                     textView.setText("interstitial ad not ready");
                 }
@@ -186,13 +180,13 @@ public class MainNewActivity extends AppCompatActivity implements View.OnClickLi
 
                     @Override
                     public void onVideoAdDontReward(String s) {
-                        Log.d(TAG, "\nonVideoAdDontReward: MsRewardVideoAdListener "+s);
+                        Log.d(TAG, "\nonVideoAdDontReward: MsRewardVideoAdListener " + s);
 
                     }
 
                     @Override
                     public void onVideoAdShowFailed(String s) {
-                        Log.d(TAG, "\nonVideoAdShowFailed: MsRewardVideoAdListener "+s);
+                        Log.d(TAG, "\nonVideoAdShowFailed: MsRewardVideoAdListener " + s);
 
                     }
                 });
@@ -210,21 +204,18 @@ public class MainNewActivity extends AppCompatActivity implements View.OnClickLi
                     }
                 });
 
-                if (mVideoAd!=null&&mVideoAd.isReady()){
+                if (mVideoAd != null && mVideoAd.isReady()) {
                     mVideoAd.show("ca-app-pub-2152232918216707/3343626633");
                     Bundle params = new Bundle();
                     params.putString("id", "video_aaa");
                     params.putString("type", "rewardVideo");
 //                    mFirebase.logEvent("rewardVideo_show", params);
-                }else{
+                } else {
                     Log.d(TAG, "onClick: videoad not ready");
                     textView.setText("videoad not ready");
                 }
                 break;
 
-            case R.id.btn_test:
-                MediationTestSuite.launch(this);
-                break;
         }
 
     }
@@ -234,6 +225,7 @@ public class MainNewActivity extends AppCompatActivity implements View.OnClickLi
         super.onStart();
         MsSDK.onStart(this);
     }
+
     @Override
     protected void onStop() {
         super.onStop();
