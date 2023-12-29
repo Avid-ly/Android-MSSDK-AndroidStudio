@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.gusdk.demo.app"
         minSdkVersion 19
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -61,7 +60,6 @@ android {
 
 repositories {
     flatDir { dirs 'libs' }
-
 }
 
 dependencies {
@@ -71,9 +69,9 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     // 使用max聚合
-    implementation 'com.ms.sdk.adapter:max:latest.release'
+//    implementation 'com.ms.sdk.adapter:max:latest.release'
 
     // 使用admob聚合
-//    implementation 'com.ms.sdk.adapter:admob:+'
+    implementation 'com.ms.sdk.adapter:admob:+'
     implementation 'com.ms.sdk:mssdk:latest.release'
 }
