@@ -1,5 +1,6 @@
 package com.avidly.mssdk.demo;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -10,7 +11,7 @@ import com.ms.sdk.wrapper.banner.MsBannerAdListener;
 import com.ms.sdk.wrapper.banner.MsGameEasyBannerWrapper;
 //import com.openup.common.tool.Helper;
 
-public class SimpleBannerActivity extends BaseActivity {
+public class SimpleBannerActivity extends Activity {
     private static final String TAG = "MSSdk_demo";
     @Override
     protected void onCreate(Bundle savedInstanceState) {

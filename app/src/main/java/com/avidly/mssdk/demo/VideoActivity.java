@@ -1,5 +1,6 @@
 package com.avidly.mssdk.demo;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -12,7 +13,7 @@ import com.ms.sdk.MsRewardVideoAd;
 import com.ms.sdk.wrapper.video.MsRewardVideoAdListener;
 import com.ms.sdk.wrapper.video.MsRewardVideoLoadCallback;
 
-public class VideoActivity extends BaseActivity {
+public class VideoActivity extends Activity {
     private static final String TAG = "MSSdk_demo";
     private int coins;
 
@@ -128,6 +129,49 @@ public class VideoActivity extends BaseActivity {
 
     private void showAd() {
         if (mVideoAd.isReady()) {
+            mVideoAd.setVideoAdListener(new MsRewardVideoAdListener() {
+                @Override
+                public void onVideoAdClicked() {
+                    Log.d(TAG, "onVideoAdClicked: ");
+                }
+
+                @Override
+                public void onVideoAdClosed() {
+                    Log.d(TAG, "onVideoAdClosed: ");
+                    mVideoAd.setLoadCallback(new MyLoadCallBack());
+                }
+
+                @Override
+                public void onVideoAdDisplayed() {
+                    Log.d(TAG, "onVideoAdDisplayed: ");
+                }
+
+                @Override
+                public void onVideoAdReward() {
+
+                    Log.d(TAG, "onVideoAdReward: ");
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(VideoActivity.this, "发奖励发奖励发奖励", Toast.LENGTH_SHORT).show();
+                            coins = coins + 300;
+                            coin.setText(coins + " coins");
+                        }
+                    });
+                }
+
+                @Override
+                public void onVideoAdDontReward(String reason) {
+
+                    Log.d(TAG, "onVideoAdDontReward: ");
+                }
+
+                @Override
+                public void onVideoAdShowFailed(String reason) {
+                    Log.d(TAG, "onVideoAdShowFailed: ");
+                }
+            });
             mVideoAd.show("RewardVideo_Shop");
         } else {
             Toast.makeText(VideoActivity.this, "广告还没准备好", Toast.LENGTH_SHORT).show();

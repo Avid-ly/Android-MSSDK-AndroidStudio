@@ -1,5 +1,6 @@
 package com.avidly.mssdk.demo;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +12,7 @@ import com.ms.sdk.wrapper.interstitial.MsInterstitialAdListener;
 import com.ms.sdk.wrapper.interstitial.MsInterstitialLoadCallback;
 
 
-public class InterstitialActivity extends BaseActivity {
+public class InterstitialActivity extends Activity {
     private static final String TAG = "MSSdk_demo";
     MsInterstitialAd mInterstitialAd;
     Button mButtonShow;

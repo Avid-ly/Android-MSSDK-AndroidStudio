@@ -1,4 +1,5 @@
 package com.avidly.mssdk.demo;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -18,13 +19,13 @@ import com.ms.sdk.listener.MssdkConsentDialogListener;
 
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-public class MainAppActivity extends BaseActivity {
+public class MainAppActivity extends Activity {
     private static final String TAG="MSSdk_demo";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ALYAnalysis.enalbeDebugMode(false);
+//        ALYAnalysis.enalbeDebugMode(false);
         MsSDK.setDebuggable(true);
         ALYAnalysis.init(getApplicationContext(), "600208", "32408", new ALYAnalysis.TasdkinitializdListener() {
             @Override

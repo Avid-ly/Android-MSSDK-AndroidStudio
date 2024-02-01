@@ -1,5 +1,6 @@
 package com.avidly.mssdk.demo;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,8 +10,8 @@ import android.widget.Toast;
 import com.ms.sdk.MsBannerAd;
 import com.ms.sdk.wrapper.banner.MsBannerAdListener;
 
-public class BannerActivity extends BaseActivity {
-    private static final String TAG = "MssSdk_demo";
+public class BannerActivity extends Activity {
+    private static final String TAG = "MsSdk_demo";
 
     LinearLayout banner_container;
     LinearLayout rectangle_container;
